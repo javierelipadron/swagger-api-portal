@@ -183,25 +183,23 @@ export default class Topbar extends React.Component {
           <div className="topbar-wrapper">
             <Link href="#">
               <img height="30" width="30" className="topbar-logo__img" src={ Logo } alt=""/>
-              <span className="topbar-logo__title">Swagger Editor</span>
+              <span className="topbar-logo__title">API Portal</span>
             </Link>
-            <DropdownMenu {...makeMenuOptions("File")}>
-              <li><button type="button" onClick={this.importFromURL}>Import URL</button></li>
-              <li><button type="button" onClick={this.showModal}>Import File</button></li>
+            <DropdownMenu {...makeMenuOptions("Archivo")}>
+              <li><button type="button" onClick={this.importFromURL}>Importar URL</button></li>
+              <li><button type="button" onClick={this.showModal}>Importar Archivo</button></li>
               <li role="separator"></li>
-              <li><button type="button" onClick={this.saveAsYaml}>Download YAML</button></li>
-              <li><button type="button" onClick={this.saveAsJson}>Download JSON</button></li>
-              <li role="separator"></li>
-              <li><button type="button" onClick={this.clearEditor}>Clear editor</button></li>
+              <li><button type="button" onClick={this.saveAsYaml}>Descargar YAML</button></li>
+              <li><button type="button" onClick={this.saveAsJson}>Descargar JSON</button></li>
             </DropdownMenu>
-            <DropdownMenu {...makeMenuOptions("Edit")}>
-              <li><button type="button" onClick={this.convertToYaml}>Convert to YAML</button></li>
+            <DropdownMenu {...makeMenuOptions("Editar")}>
+              <li><button type="button" onClick={this.convertToYaml}>Convertir a YAML</button></li>
             </DropdownMenu>
-            { showGenerateMenu ? <DropdownMenu className="long" {...makeMenuOptions("Generate Server")}>
+            { showGenerateMenu ? <DropdownMenu className="long" {...makeMenuOptions("Generar Servidor")}>
               { this.state.servers
                   .map(serv => <li><button type="button" onClick={this.downloadGeneratedFile.bind(null, "server", serv)}>{serv}</button></li>) }
             </DropdownMenu> : null }
-            { showGenerateMenu ? <DropdownMenu className="long" {...makeMenuOptions("Generate Client")}>
+            { showGenerateMenu ? <DropdownMenu className="long" {...makeMenuOptions("Generar Cliente")}>
               { this.state.clients
                   .map(cli => <li><button type="button" onClick={this.downloadGeneratedFile.bind(null, "client", cli)}>{cli}</button></li>) }
             </DropdownMenu> : null }
